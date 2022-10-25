@@ -41,7 +41,7 @@ int test_sorted_list(int* list, int len){
 
 int main() {
 	
-	//implemented: pivot sort algorithm
+	//implemented: quick sort algorithm
 	
 	
 	//       			sort small list	
@@ -50,7 +50,7 @@ int main() {
 	
 	printf("sort small list - ");
 	print_list(test_list, 10, 1);
-	pivot_sort(test_list, 10);
+	quick_sort(test_list, 10);
 	print_list(test_list, 10, 1);
 	
 	
@@ -76,7 +76,7 @@ int main() {
 	
 	//sort the list
 	printf("sort a big list\n");	
-	pivot_sort(big_test_list, numb_rand_numbers);
+	quick_sort(big_test_list, numb_rand_numbers);
 	print_list(big_test_list, numb_rand_numbers, 1);
 	
 	

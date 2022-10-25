@@ -6,15 +6,10 @@
 //listB - will contain sorted list result at end of recursion step
 //len 	- length of both lists
 //
-void pivot_sort_rec(int* listA, int* listB, int len){
+void quick_sort_rec(int* listA, int* listB, int len){
 	if(len <= 1){
 		return;
 	}
-	//printf("piv_sort_rec ");
-	//print_list(test_list, 10, 0);//###
-	//print_list(test_listB, 10, 0);//###
-	//printf("listA ");
-	//print_list(listA, 2,0); //#####
 	
 	//choose first list element as pivot element
 	int pivot_el = listA[0];
@@ -42,8 +37,8 @@ void pivot_sort_rec(int* listA, int* listB, int len){
 	}
 	
 	//recursion step
-	pivot_sort_rec(listB, listA, cnt1 + 1);
-	pivot_sort_rec( (listB + cnt1 + 1), (listA + cnt1 + 1), cnt2);
+	quick_sort_rec(listB, listA, cnt1 + 1);
+	quick_sort_rec( (listB + cnt1 + 1), (listA + cnt1 + 1), cnt2);
 	
 	//insert sorted results back into listA
 	memcpy((void*) listA, (void*) listB, (cnt1 + 1) * sizeof(int));
@@ -57,19 +52,19 @@ void pivot_sort_rec(int* listA, int* listB, int len){
 }
 
 
-// pivot sort implementation
+// quick sort implementation
 //
-// wrapper function for recursive pivot sort func
+// wrapper function for recursive quick sort func
 //
 // function uses only len*sizeof(int) memory internally
 //
-void pivot_sort(int* list, int len){
+void quick_sort(int* list, int len){
 	int* list_mall = (int *) malloc( sizeof(int) * len);
 	if(list_mall == NULL){
 		exit(0);
 	}
 	
-	pivot_sort_rec(list, list_mall, len);
+	quick_sort_rec(list, list_mall, len);
 	
 	free((void *)list_mall);
 	return;
